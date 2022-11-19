@@ -1,0 +1,15 @@
+{
+    "name": "user/gen-pdf-tcpdf",
+    "autoload": {
+        "psr-4": {
+            "User\\GenPdfTcpdf\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "theredhood427",
+            "email": "bangsil.ronrusselle@auf.edu.ph"
+        }
+    ],
+    "require": {}
+}
