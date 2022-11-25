@@ -1,18 +1,47 @@
 <?php
-include "vendor/autoload.php";
 
+require "vendor/autoload.php";
+
+//============================================================+
+// File name   : example_008.php
+// Begin       : 2008-03-04
+// Last Update : 2013-05-14
+//
+// Description : Example 008 for TCPDF class
+//               Include external UTF-8 text file
+//
+// Author: Nicola Asuni
+//
+// (c) Copyright:
+//               Nicola Asuni
+//               Tecnick.com LTD
+//               www.tecnick.com
+//               info@tecnick.com
+//============================================================+
+
+/**
+ * Creates an example PDF TEST document using TCPDF
+ * @package com.tecnick.tcpdf
+ * @abstract TCPDF - Example: Include external UTF-8 text file
+ * @author Nicola Asuni
+ * @since 2008-03-04
+ */
+
+// Include the main TCPDF library (search for installation path).
+/* require_once('tcpdf_include.php'); */
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Nicola Asuni');
-$pdf->SetTitle('TCPDF Example 008');
+$pdf->SetAuthor('Russelle Bangsil');
+$pdf->SetTitle('TCPDF Activity 3 - Display Chapter Contents');
 $pdf->SetSubject('TCPDF Tutorial');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
-
+// set default header data
+$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.'', PDF_HEADER_STRING);
 
 // set header and footer fonts
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -50,9 +79,9 @@ $pdf->SetFont('freeserif', '', 12);
 $pdf->AddPage();
 
 // get esternal file content
-$part1 = file_get_contents('vendor/tecnickcom/tcpdf/examples/data/part1-SW.txt', false);
-$part2 = file_get_contents('vendor/tecnickcom/tcpdf/examples/data/part2-SW.txt', false);
-$part3 = file_get_contents('vendor/tecnickcom/tcpdf/examples/data/part3-SW.txt', false);
+$chapter1 = file_get_contents('part1-SW.txt', false);
+/* $chapter2 = file_get_contents('part2-SW.txt', false);
+$chapter3 = file_get_contents('part3-SW.txt', false); */
 
 // set color for text
 $pdf->SetTextColor(0, 63, 127);
@@ -60,15 +89,15 @@ $pdf->SetTextColor(0, 63, 127);
 //Write($h, $txt, $link='', $fill=0, $align='', $ln=false, $stretch=0, $firstline=false, $firstblock=false, $maxh=0)
 
 // write the text
-$pdf->Write(5, $part1, '', 0, '', false, 0, false, false, 0);
-$pdf->Write(5, $part2, '', 0, '', false, 0, false, false, 0);
-$pdf->Write(5, $part3, '', 0, '', false, 0, false, false, 0);
+$pdf->Write(5, $chapter1, '', 0, '', false, 0, false, false, 0);
+/* $pdf->Write(5, $chapter2, '', 0, '', false, 0, false, false, 0);
+$pdf->Write(5, $chapter3, '', 0, '', false, 0, false, false, 0); */
 
 
 // ---------------------------------------------------------
 
 //Close and output PDF document
-$pdf->Output('example_008.pdf', 'I');
+$pdf->Output('three-display-contents.pdf', 'I');
 
 //============================================================+
 // END OF FILE

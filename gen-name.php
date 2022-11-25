@@ -20,7 +20,7 @@ class MYPDF extends TCPDF {
         // disable auto-page-break
         $this->SetAutoPageBreak(false, 0);
         // set bacground image
-        $img_file = K_PATH_IMAGES.'image_demo.jpg';
+        $img_file = K_PATH_IMAGES.'isme.jpg';
         $this->Image($img_file, 0, 0, 210, 297, '', '', '', false, 300, '', false, false, 0);
         // restore auto-page-break status
         $this->SetAutoPageBreak($auto_page_break, $bMargin);
@@ -67,7 +67,7 @@ $pdf->SetFont('times', '', 48);
 $pdf->AddPage();
 
 // Print a text
-$html = '<span style="color:black;text-align:center;font-weight:bold;font-size:60pt;">&nbsp;Student Info&nbsp;</span>
+$html = '<span style="color:white;text-align:center;font-weight:bold;font-size:60pt;">&nbsp;Student Info&nbsp;</span>
 <p stroke="0.2" fill="true" strokecolor="white" color="black" style="font-family:helvetica;font-weight:bold;font-size:26pt;">
 Name: Ron Russelle L. Bangsil<br>
 Program: CCS<br>
